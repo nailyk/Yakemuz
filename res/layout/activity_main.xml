@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg" >
+
+    <ImageButton
+        android:id="@+id/b_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/record_button"
+        android:contentDescription="@string/cd_b_record" />
+
+    <TextView
+        android:id="@+id/t_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/b_record"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/t_status"
+        android:textAppearance="@style/status_appearance" />
+
+</RelativeLayout>

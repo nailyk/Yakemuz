@@ -1,0 +1,13 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--         Base application theme for API 16+ -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 16 theme customizations can go here. -->
+    </style>
+
+    <style name="status_appearance" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+</resources>

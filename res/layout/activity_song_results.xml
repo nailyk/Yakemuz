@@ -1,0 +1,140 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:paddingBottom="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="10dp"
+    android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+    tools:context=".activities.SongResultsActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/album_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/cd_album_cover"
+            android:scaleType="centerInside"
+            android:src="@drawable/no_artwork" />
+
+        <LinearLayout
+            android:id="@+id/layout_detailsSong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/album_cover"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/layout_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/l_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/l_artist"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/l_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/l_title"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_release_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/l_release_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/l_release_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/release_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/api_links"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_detailsSong"
+            android:gravity="center"
+            android:divider="@drawable/divider"
+            android:orientation="vertical"
+            android:showDividers="middle" >
+
+            <ImageButton
+                android:id="@+id/spotify_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cd_spotify_logo"
+                android:src="@drawable/spotify_logo"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/deezer_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cd_deezer_logo"
+                android:src="@drawable/deezer_logo"
+                android:visibility="gone"/>
+
+            <ImageButton
+                android:id="@+id/whosampled_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cd_whosampled_logo"
+                android:src="@drawable/whosampled_logo"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

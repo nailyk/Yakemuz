@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Yakemuz</string>
+    <string name="action_settings">Settings</string>
+    <string name="b_record">start recording&#8230;</string>
+    <string name="t_status">Effleurez pour capturer</string>
+    <string name="title_activity_song_results">SongResultsActivity</string>
+    <string name="l_artist">Artiste :&#160;</string>
+    <string name="l_title">Titre :&#160;</string>
+    <string name="l_release_name">Album :&#160;</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="cd_b_record">record button</string>
+    <string name="cd_album_cover">album cover</string>
+    <string name="cd_whosampled_logo">logo whosampled</string>
+    <string name="cd_deezer_logo">logo deezer</string>
+    <string name="cd_spotify_logo">logo spotify</string>
+    <string name="cd_laucher_logo">logo launcher</string>
+
+</resources>

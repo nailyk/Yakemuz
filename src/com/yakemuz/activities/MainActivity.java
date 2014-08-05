@@ -20,7 +20,6 @@ import com.yakemuz.util.NetworkState;
 public class MainActivity extends Activity implements AudioFingerprinterListener {
 
 	RecordFragment mRecordFragment;
-
 	TextView status;
 	ImageButton recordButton;
 	// processing will be set to 'true' from the start of the fingerprinting/matching process to its end
@@ -60,7 +59,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 				}
 			}
 		});
-		
+
 		FragmentManager fm = getFragmentManager();
 
 		// Check to see if we have retained the worker fragment.
@@ -107,8 +106,8 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 
 	@Override
 	public void willStartListening() {
-		status.setText("Listening...");
 		processing = true;
+		status.setText("Listening...");
 	}
 
 	@Override
@@ -118,25 +117,25 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 
 	@Override
 	public void didFinishMatching(Bundle results) {
-		recordButton.clearAnimation();
-		processing = false;			
+		processing = false;	
+		rotation.cancel();		
 		Intent intent = new Intent(MainActivity.this, SongResultsActivity.class);
-		intent.putExtra("results", results);
+		intent.putExtras(results);
 		status.setText(R.string.t_status);
 		startActivity(intent);
 	}
 
 	@Override
 	public void didFailWithException(Exception e) {
+		processing = false;			
 		status.setText(e.getMessage());
-		recordButton.clearAnimation();
-		processing = false;	
+		rotation.cancel();
 	}
 
 	@Override
 	public void didInterrupted() {
 		status.setText(R.string.t_status);
-		recordButton.clearAnimation();
+		rotation.cancel();
 		processing = false;
 	}
 

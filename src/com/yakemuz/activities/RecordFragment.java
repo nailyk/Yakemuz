@@ -29,17 +29,17 @@ public class RecordFragment extends Fragment implements Runnable {
 	 * Contains the different delegate methods for the fingerprinting process
 	 */
 	static interface AudioFingerprinterListener {
-		
+
 		/**
 		 * Called when the fingerprinter is going to process
 		 */
 		public void willStartListening();
-		
+
 		/**
 		 * Called when the fingerprinter process has finished
 		 */
 		public void didFinishListening();
-		
+
 		/**
 		 * Called when the matching process has finished
 		 */
@@ -147,7 +147,7 @@ public class RecordFragment extends Fragment implements Runnable {
 
 				// Convert bitmap to byte array
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();
-				cover.compress(CompressFormat.PNG, 0 /* ignored for PNG */, bos);
+				cover.compress(CompressFormat.JPEG, 100 /* ignored for PNG */, bos);
 				byte[] bitmapdata = bos.toByteArray();
 
 				// create a file to write bitmap data

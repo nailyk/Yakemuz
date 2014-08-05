@@ -102,8 +102,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_detailsSong"
             android:gravity="center"
-            android:divider="@drawable/divider_vertical"
-            android:orientation="vertical"
+            android:divider="@drawable/divider_horizontal"
+            android:orientation="horizontal"
             android:showDividers="middle" >
 
             <ImageButton

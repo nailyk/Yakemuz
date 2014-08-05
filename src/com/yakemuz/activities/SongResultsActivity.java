@@ -39,10 +39,12 @@ public class SongResultsActivity extends Activity {
 		Bundle results = intent.getBundleExtra("results");
 		artist.setText(results.getString("artist"));
 		title.setText(results.getString("title"));
-		release_name.setText(results.getString("release_name"));
-		if (results.getString("cover_filepath") != null)
+		if (results.getString("release_name") != null) {
+			release_name.setText(results.getString("release_name"));
+		}
+		if (results.getString("cover_filepath") != null) {
 			album_cover.setImageBitmap(BitmapFactory.decodeFile(results.getString("cover_filepath")));
-
+		}
 		if (results.getString("link_spotify") != null) {	
 			link_spotify = results.getString("link_spotify");
 			spotify_logo.setVisibility(View.VISIBLE);
@@ -59,7 +61,7 @@ public class SongResultsActivity extends Activity {
 		}
 
 		if (results.getString("link_deezer") != null) {	
-			link_deezer = intent.getStringExtra("link_deezer");
+			link_deezer = results.getString("link_deezer");
 			deezer_logo.setVisibility(View.VISIBLE);
 			deezer_logo.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -74,7 +76,7 @@ public class SongResultsActivity extends Activity {
 		}
 
 		if (results.getString("link_whosampled") != null) {	
-			link_whosampled = intent.getStringExtra("link_whosampled");
+			link_whosampled = results.getString("link_whosampled");
 			whosampled_logo.setVisibility(View.VISIBLE);
 			whosampled_logo.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {

@@ -17,14 +17,13 @@ import com.yakemuz.R;
 import com.yakemuz.activities.RecordFragment.AudioFingerprinterListener;
 import com.yakemuz.util.NetworkState;
 
-public class MainActivity extends Activity implements AudioFingerprinterListener, IdentifySongFragment.IdentifySongListener {
+public class MainActivity extends Activity implements AudioFingerprinterListener {
 
 	RecordFragment mRecordFragment;
-	IdentifySongFragment mIdentifySongFragment;
 
 	TextView status;
 	ImageButton recordButton;
-	// processing will be set to 'true' from the start of the fingerprinting process to the end of the IdentifySong task
+	// processing will be set to 'true' from the start of the fingerprinting/matching process to its end
 	boolean processing = false;
 	boolean isInternetPresent = false;
 	// Connection detector class
@@ -32,50 +31,13 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 	Animation rotation;
 
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		// TODO Auto-generated method stub
-		super.onSaveInstanceState(outState);
-		outState.putBoolean("is_processing", processing);
-		outState.putCharSequence("status", status.getText());
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onRestoreInstanceState(savedInstanceState);
-		processing = savedInstanceState.getBoolean("is_processing");
-		if (processing) {
-			/* status could be "recording" if the fingerprint thread is still running
-			 * or "matching" if the identifySongTask is being executed
-			 */
-			status.setText(savedInstanceState.getCharSequence("status"));
-			recordButton.startAnimation(rotation);
-		}
-	}
-
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		FragmentManager fm = getFragmentManager();
 
-		// Check to see if we have retained the worker fragment.
-		mRecordFragment = (RecordFragment)fm.findFragmentByTag("RECORD_FRAGMENT");
-		mIdentifySongFragment = (IdentifySongFragment) fm.findFragmentByTag("IDENTIFY_SONG_FRAGMENT");
-
-		// If not retained (or first time running), we need to create it.
-		if (mRecordFragment == null) {
-			FragmentTransaction ft = fm.beginTransaction();
-			mRecordFragment = new RecordFragment();
-			mIdentifySongFragment = new IdentifySongFragment();
-			ft.add(mRecordFragment, "RECORD_FRAGMENT");
-			ft.add(mIdentifySongFragment, "IDENTIFY_SONG_FRAGMENT");
-			ft.commit();
-		}
-
+		status = (TextView) findViewById(R.id.t_status);
 		rotation = AnimationUtils.loadAnimation(this, R.anim.rotate);
 		net_state = new NetworkState(this);
-		status = (TextView) findViewById(R.id.t_status);
 		recordButton = (ImageButton) findViewById(R.id.b_record);
 		recordButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -98,13 +60,50 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 				}
 			}
 		});
+		
+		FragmentManager fm = getFragmentManager();
+
+		// Check to see if we have retained the worker fragment.
+		mRecordFragment = (RecordFragment)fm.findFragmentByTag("RECORD_FRAGMENT");
+
+		if (mRecordFragment != null) {
+			switch (mRecordFragment.getState()) {
+			case RecordFragment.STATE_LISTENING:
+				processing = true;
+				status.setText("Listening...");
+				break;
+			case RecordFragment.STATE_MATCHING:
+				processing = true;
+				status.setText("Matching...");
+				break;	
+			}
+		}		
+		// If not retained (or first time running), we need to create it.
+		else {
+			FragmentTransaction ft = fm.beginTransaction();
+			mRecordFragment = new RecordFragment();
+			ft.add(mRecordFragment, "RECORD_FRAGMENT");
+			ft.commit();
+		}
 	}
 
 	@Override
-	public void didFinishListening(String fp_code) {
-		status.setText("Matching...");
-		mIdentifySongFragment.start(fp_code);
+	protected void onPause() {
+		super.onPause();
+		if (rotation.hasStarted()) {
+			rotation.cancel();
+		}
 	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		if (processing) {
+			recordButton.startAnimation(rotation);	
+		}
+	}
+
 
 	@Override
 	public void willStartListening() {
@@ -113,8 +112,23 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 	}
 
 	@Override
+	public void didFinishListening() {
+		status.setText("Matching...");
+	}
+
+	@Override
+	public void didFinishMatching(Bundle results) {
+		recordButton.clearAnimation();
+		processing = false;			
+		Intent intent = new Intent(MainActivity.this, SongResultsActivity.class);
+		intent.putExtra("results", results);
+		status.setText(R.string.t_status);
+		startActivity(intent);
+	}
+
+	@Override
 	public void didFailWithException(Exception e) {
-		status.setText("Error: " + e);
+		status.setText(e.getMessage());
 		recordButton.clearAnimation();
 		processing = false;	
 	}
@@ -131,26 +145,5 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-
-	@Override
-	public void onPostExecute(Bundle results) {
-		recordButton.clearAnimation();
-		processing = false;			
-		Intent intent = new Intent(MainActivity.this, SongResultsActivity.class);
-		intent.putExtra("results", results);
-		status.setText(R.string.t_status);
-		startActivity(intent);	
-	}
-
-	@Override
-	public void onProgressUpdate(String... values) {
-		status.setText(values[0]);
-	}
-
-	@Override
-	public void onCancelled() {
-		recordButton.clearAnimation();
-		processing = false;
 	}
 }

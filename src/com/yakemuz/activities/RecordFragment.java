@@ -74,11 +74,11 @@ public class RecordFragment extends Fragment implements Runnable {
 	private int secondsToRecord;
 	private short state = STATE_IDE;
 
-	private Bundle results = new Bundle();
-	private EchonestAPI echonest_api = new EchonestAPI();
-	private DeezerAPI deezer_api = new DeezerAPI();
-	private SpotifyAPI spotify_api = new SpotifyAPI();
-	private WhosampledAPI whosampled_api = new WhosampledAPI();
+	private Bundle results;
+	private EchonestAPI echonest_api;
+	DeezerAPI deezer_api;
+	private SpotifyAPI spotify_api;
+	private WhosampledAPI whosampled_api;
 
 	@Override
 	public void run() {
@@ -205,6 +205,12 @@ public class RecordFragment extends Fragment implements Runnable {
 		// Tell the framework to try to keep this fragment around
 		// during a configuration change.
 		setRetainInstance(true);
+
+		results = new Bundle();
+		echonest_api = new EchonestAPI();
+		deezer_api = new DeezerAPI();
+		spotify_api = new SpotifyAPI();
+		whosampled_api = new WhosampledAPI();
 	}
 
 

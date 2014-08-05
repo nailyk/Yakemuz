@@ -1,6 +1,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--         Base application theme for API 16+ -->
+    <!-- Base application theme for API 16+ -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 16 theme customizations can go here. -->
     </style>

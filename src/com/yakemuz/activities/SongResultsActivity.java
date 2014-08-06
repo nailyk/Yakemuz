@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.yakemuz.R;
+import com.yakemuz.preferences.MyPreferenceActivity;
 
 public class SongResultsActivity extends Activity {
 
@@ -120,6 +122,10 @@ public class SongResultsActivity extends Activity {
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
 			NavUtils.navigateUpFromSameTask(this);
+			return true;
+
+		case R.id.action_settings:
+			startActivity(new Intent(this, MyPreferenceActivity.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

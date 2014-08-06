@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/record_button"
         android:contentDescription="@string/cd_b_record" />
 
@@ -19,8 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/b_record"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="@string/t_status"
         android:textAppearance="@style/status_appearance" />
 

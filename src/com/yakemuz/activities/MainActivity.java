@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,9 +19,10 @@ import android.widget.Toast;
 
 import com.yakemuz.R;
 import com.yakemuz.activities.RecordFragment.AudioFingerprinterListener;
+import com.yakemuz.preferences.MyPreferenceActivity;
 import com.yakemuz.util.NetworkState;
 
-public class MainActivity extends Activity implements AudioFingerprinterListener {
+public class MainActivity extends Activity implements AudioFingerprinterListener, OnSharedPreferenceChangeListener {
 
 	RecordFragment mRecordFragment;
 	TextView status;
@@ -28,12 +33,16 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 	// Connection detector class
 	NetworkState net_state;
 	Animation rotation;
+	SharedPreferences sharedPref;
+	int recordTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+		sharedPref.registerOnSharedPreferenceChangeListener(this);
+		recordTime = Integer.parseInt(sharedPref.getString("record_time", "15"));
 		status = (TextView) findViewById(R.id.t_status);
 		rotation = AnimationUtils.loadAnimation(this, R.anim.rotate);
 		net_state = new NetworkState(this);
@@ -54,7 +63,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 						// start logo animation
 						recordButton.startAnimation(rotation);
 						// start fingerprint
-						mRecordFragment.fingerprint(20);
+						mRecordFragment.fingerprint(recordTime);
 					}
 				}
 			}
@@ -144,5 +153,25 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		switch(item.getItemId()) {
+		case R.id.action_settings:
+			startActivity(new Intent(this, MyPreferenceActivity.class));
+			return true;
+		}
+		return super.onMenuItemSelected(featureId, item);
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
+		// TODO Auto-generated method stub
+		if (key.equals("record_time")) {
+			recordTime = Integer.parseInt(sharedPref.getString("record_time", "15"));
+		}
 	}
 }

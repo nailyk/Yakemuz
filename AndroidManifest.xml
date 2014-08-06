@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.yakemuz.activities.SplashScreen"
+            android:name="com.yakemuz.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,16 +27,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.yakemuz.activities.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.yakemuz.activities.SongResultsActivity"
             android:label="@string/title_activity_song_results"
             android:parentActivityName="com.yakemuz.activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.yakemuz.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.yakemuz.preferences.MyPreferenceActivity"
+            android:label="My Preferences" >
         </activity>
     </application>
 

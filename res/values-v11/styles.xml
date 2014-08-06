@@ -2,7 +2,7 @@
 
     <!--
         Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
@@ -11,6 +11,7 @@
     <style name="status_appearance" parent="@android:style/TextAppearance.Large">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:typeface">sans</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
 </resources>

@@ -44,6 +44,9 @@ public class SongResultsActivity extends Activity {
 		if (results.getString("release_name") != null) {
 			release_name.setText(results.getString("release_name"));
 		}
+		else {
+			findViewById(R.id.layout_release_name).setVisibility(View.GONE);
+		}
 		if (results.getString("cover_filepath") != null) {
 			album_cover.setImageBitmap(BitmapFactory.decodeFile(results.getString("cover_filepath")));
 		}

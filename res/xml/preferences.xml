@@ -3,10 +3,10 @@
 
     <EditTextPreference
         android:defaultValue="15"
-        android:key="record_time"
         android:inputType="number"
+        android:key="record_time"
         android:persistent="true"
-        android:summary="set at least 15sec for better results"
-        android:title="Recording time" />
+        android:summary="@string/settings_summary_recordtime"
+        android:title="@string/settings_title_recordtime" />
 
 </PreferenceScreen>

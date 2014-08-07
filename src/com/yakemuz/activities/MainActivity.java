@@ -78,11 +78,11 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 			switch (mRecordFragment.getState()) {
 			case RecordFragment.STATE_LISTENING:
 				processing = true;
-				status.setText("Listening...");
+				status.setText(R.string.st_is_recording);
 				break;
 			case RecordFragment.STATE_MATCHING:
 				processing = true;
-				status.setText("Matching...");
+				status.setText(R.string.st_is_matching);
 				break;	
 			}
 		}		
@@ -116,12 +116,12 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 	@Override
 	public void willStartListening() {
 		processing = true;
-		status.setText("Listening...");
+		status.setText(R.string.st_is_recording);
 	}
 
 	@Override
 	public void didFinishListening() {
-		status.setText("Matching...");
+		status.setText(R.string.st_is_matching);
 	}
 
 	@Override
@@ -130,7 +130,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 		rotation.cancel();		
 		Intent intent = new Intent(MainActivity.this, SongResultsActivity.class);
 		intent.putExtras(results);
-		status.setText(R.string.t_status);
+		status.setText(R.string.st_start_recording);
 		startActivity(intent);
 	}
 
@@ -143,7 +143,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 
 	@Override
 	public void didInterrupted() {
-		status.setText(R.string.t_status);
+		status.setText(R.string.st_start_recording);
 		rotation.cancel();
 		processing = false;
 	}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Yakemuz</string>
+    <string name="action_settings">Options</string>
+    <string name="st_start_recording">Effleurez pour écouter</string>
+    <string name="st_is_recording">En écoute&#8230;</string>
+    <string name="st_is_matching">Recherche de correspondances&#8230;</string>
+    <string name="title_activity_song_results">SongResultsActivity</string>
+    <string name="l_artist">Artiste :&#160;</string>
+    <string name="l_title">Titre :&#160;</string>
+    <string name="l_release_name">Album :&#160;</string>
+    <string name="cd_b_record">bouton de capture</string>
+    <string name="cd_album_cover">pochette de l\'album</string>
+    <string name="cd_whosampled_logo">logo whosampled</string>
+    <string name="cd_deezer_logo">logo deezer</string>
+    <string name="cd_spotify_logo">logo spotify</string>
+    <string name="cd_laucher_logo">logo launcher</string>
+    <string name="settings_title_recordtime">Temps de capture</string>
+    <string name="settings_summary_recordtime">fixer au moins 15s pour obtenir de bons résultats</string>
+</resources>

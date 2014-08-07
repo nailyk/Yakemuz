@@ -227,7 +227,7 @@ public class RecordFragment extends Fragment implements Runnable {
 
 	@Override
 	public void onDetach() {
-		super.onDestroy();
+		super.onDetach();
 		listener = null;
 	}
 
@@ -274,6 +274,7 @@ public class RecordFragment extends Fragment implements Runnable {
 			activity.runOnUiThread(new Runnable() {
 				public void run() {
 					listener.didFinishListening();
+					results.clear();
 				}
 			});
 		} else

@@ -38,7 +38,7 @@ public class SongResultsActivity extends Activity {
 		deezer_logo = (ImageView) findViewById(R.id.deezer_logo);
 
 		Intent intent = getIntent();
-		Bundle results = intent.getExtras();
+		Bundle results = intent.getBundleExtra("results");
 		artist.setText(results.getString("artist"));
 		title.setText(results.getString("title"));
 		if (results.getString("release_name") != null) {

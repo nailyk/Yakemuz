@@ -60,10 +60,10 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 						toast.show();
 					}
 					else {
-						// start logo animation
-						recordButton.startAnimation(rotation);
 						// start fingerprint
 						mRecordFragment.fingerprint(recordTime);
+						// start logo animation
+						recordButton.startAnimation(rotation);
 					}
 				}
 			}
@@ -74,7 +74,15 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 		// Check to see if we have retained the worker fragment.
 		mRecordFragment = (RecordFragment)fm.findFragmentByTag("RECORD_FRAGMENT");
 
-		if (mRecordFragment != null) {
+		// If not retained (or first time running), we need to create it.
+		if (mRecordFragment == null) {
+			FragmentTransaction ft = fm.beginTransaction();
+			mRecordFragment = new RecordFragment();
+			ft.add(mRecordFragment, "RECORD_FRAGMENT");
+			ft.commit();
+		}		
+		// Else, we restore the state before the configuration change occurred
+		else {
 			switch (mRecordFragment.getState()) {
 			case RecordFragment.STATE_LISTENING:
 				processing = true;
@@ -85,13 +93,6 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 				status.setText(R.string.st_is_matching);
 				break;	
 			}
-		}		
-		// If not retained (or first time running), we need to create it.
-		else {
-			FragmentTransaction ft = fm.beginTransaction();
-			mRecordFragment = new RecordFragment();
-			ft.add(mRecordFragment, "RECORD_FRAGMENT");
-			ft.commit();
 		}
 	}
 
@@ -129,7 +130,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 		processing = false;	
 		rotation.cancel();		
 		Intent intent = new Intent(MainActivity.this, SongResultsActivity.class);
-		intent.putExtras(results);
+		intent.putExtra("results", results);
 		status.setText(R.string.st_start_recording);
 		startActivity(intent);
 	}

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- define custom attributes 'min' and 'max' for the SeekBarPreference -->
-    <declare-styleable name="com.yakemuz.preferences.NumberPickerPreference">
+    <declare-styleable name="oe">
         <attr name="minValue" format="integer" />
         <attr name="maxValue" format="integer" />
     </declare-styleable>

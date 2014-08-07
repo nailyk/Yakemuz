@@ -9,16 +9,10 @@ public class MyPreferenceActivity extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-		 // Display the fragment as the main content.
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new MyPreferenceFragment())
-                .commit();
+
+		// Display the fragment as the main content.
+		getFragmentManager().beginTransaction()
+		.replace(android.R.id.content, new MyPreferenceFragment())
+		.commit();
 	}
-
-
-
-
-
-
 }

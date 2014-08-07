@@ -44,13 +44,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_artist"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAppearance="@style/details_song_appearance"
                     android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/artist"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,13 +66,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_title"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAppearance="@style/details_song_appearance"
                     android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,13 +88,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_release_name"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAppearance="@style/details_song_appearance"
                     android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/release_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
         </LinearLayout>
 

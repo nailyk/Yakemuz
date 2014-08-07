@@ -11,4 +11,10 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="details_song_appearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

@@ -57,8 +57,9 @@ int string title_activity_song_results 0x7f060005
 int string title_activity_splash_screen 0x7f060009
 int style AppBaseTheme 0x7f080000
 int style AppTheme 0x7f080001
+int style details_song_appearance 0x7f080003
 int style status_appearance 0x7f080002
-int[] styleable com_yakemuz_preferences_NumberPickerPreference { 0x7f010000, 0x7f010001 }
-int styleable com_yakemuz_preferences_NumberPickerPreference_maxValue 1
-int styleable com_yakemuz_preferences_NumberPickerPreference_minValue 0
+int[] styleable oe { 0x7f010000, 0x7f010001 }
+int styleable oe_maxValue 1
+int styleable oe_minValue 0
 int xml preferences 0x7f050000

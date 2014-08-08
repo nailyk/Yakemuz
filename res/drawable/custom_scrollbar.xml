@@ -5,10 +5,10 @@
 
     <corners android:radius="8dp" />
 
-    <size android:width="4dp" />
+    <size android:width="3dp" />
 
     <padding
-        android:left="0.5dp"
-        android:right="0.5dp" />
+        android:left="5dp"
+        android:right="0dp" />
 
 </shape>

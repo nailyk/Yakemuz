@@ -50,6 +50,7 @@ int string cd_whosampled_logo 0x7f06000b
 int string l_artist 0x7f060006
 int string l_release_name 0x7f060008
 int string l_title 0x7f060007
+int string no_connection 0x7f060011
 int string settings_summary_recordtime 0x7f060010
 int string settings_title_recordtime 0x7f06000f
 int string st_is_matching 0x7f060004

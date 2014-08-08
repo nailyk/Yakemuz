@@ -8,6 +8,7 @@
     android:paddingRight="5dp"
     android:paddingTop="10dp"
     android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+    android:scrollbarStyle="insideInset"
     tools:context=".activities.SongResultsActivity" >
 
     <RelativeLayout
@@ -27,8 +28,8 @@
             android:id="@+id/layout_detailsSong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/album_cover"
             android:layout_alignLeft="@id/album_cover"
+            android:layout_below="@+id/album_cover"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical" >
@@ -44,13 +45,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_artist"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="italic" />
+                    android:textAppearance="@style/details_song_appearance"
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/artist"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,13 +67,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_title"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="italic" />
+                    android:textAppearance="@style/details_song_appearance"
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,13 +89,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/l_release_name"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="italic" />
+                    android:textAppearance="@style/details_song_appearance"
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/release_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/details_song_appearance" />
             </LinearLayout>
         </LinearLayout>
 
@@ -101,8 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_detailsSong"
-            android:gravity="center"
             android:divider="@drawable/divider_horizontal"
+            android:gravity="center"
             android:orientation="horizontal"
             android:showDividers="middle" >
 
@@ -122,7 +126,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/cd_deezer_logo"
                 android:src="@drawable/deezer_logo"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/whosampled_logo"

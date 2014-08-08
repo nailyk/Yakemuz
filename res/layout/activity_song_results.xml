@@ -8,6 +8,7 @@
     android:paddingRight="5dp"
     android:paddingTop="10dp"
     android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+    android:scrollbarStyle="insideInset"
     tools:context=".activities.SongResultsActivity" >
 
     <RelativeLayout
@@ -45,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/l_artist"
                     android:textAppearance="@style/details_song_appearance"
-                    android:textStyle="italic" />
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/artist"
@@ -67,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/l_title"
                     android:textAppearance="@style/details_song_appearance"
-                    android:textStyle="italic" />
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/title"
@@ -89,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/l_release_name"
                     android:textAppearance="@style/details_song_appearance"
-                    android:textStyle="italic" />
+                    android:textColor="#FFFFA600" />
 
                 <TextView
                     android:id="@+id/release_name"

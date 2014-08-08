@@ -18,4 +18,6 @@
     <string name="cd_laucher_logo">logo launcher</string>
     <string name="settings_title_recordtime">Temps de capture</string>
     <string name="settings_summary_recordtime">fixer au moins 15s pour obtenir de bons résultats</string>
-</resources>
+    <string name="no_connection">pas de connexion réseau</string>
+
+</resources>

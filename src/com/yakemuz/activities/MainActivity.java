@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 					// get Internet status
 					isInternetPresent = net_state.isConnectingToInternet();
 					if (!isInternetPresent) {
-						Toast toast = Toast.makeText(MainActivity.this, "no Internet connection",Toast.LENGTH_SHORT);
+						Toast toast = Toast.makeText(MainActivity.this, R.string.no_connection, Toast.LENGTH_SHORT);
 						toast.show();
 					}
 					else {

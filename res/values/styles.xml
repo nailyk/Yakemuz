@@ -26,7 +26,6 @@
     <style name="details_song_appearance" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:typeface">sans</item>
-        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

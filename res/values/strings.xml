@@ -18,5 +18,6 @@
     <string name="cd_laucher_logo">logo launcher</string>
     <string name="settings_title_recordtime">Recording time</string>
     <string name="settings_summary_recordtime">set at least 15s for better results</string>
+    <string name="no_connection">no network connection</string>
 
 </resources>

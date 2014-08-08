@@ -56,10 +56,7 @@ public class SongResultsActivity extends Activity {
 			spotify_logo.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					if (! link_spotify.isEmpty()) {
-						Intent intent = new Intent();
-						intent.setAction(Intent.ACTION_VIEW);
-						intent.addCategory(Intent.CATEGORY_BROWSABLE);
-						intent.setData(Uri.parse(link_spotify));
+						Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link_spotify));
 						startActivity(intent);
 					}
 				}});
@@ -71,10 +68,7 @@ public class SongResultsActivity extends Activity {
 			deezer_logo.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					if (! link_deezer.isEmpty()) {
-						Intent intent = new Intent();
-						intent.setAction(Intent.ACTION_VIEW);
-						intent.addCategory(Intent.CATEGORY_BROWSABLE);
-						intent.setData(Uri.parse(link_deezer));
+						Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link_deezer));
 						startActivity(intent);
 					}
 				}});
@@ -86,10 +80,7 @@ public class SongResultsActivity extends Activity {
 			whosampled_logo.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					if (! link_whosampled.isEmpty()) {
-						Intent intent = new Intent();
-						intent.setAction(Intent.ACTION_VIEW);
-						intent.addCategory(Intent.CATEGORY_BROWSABLE);
-						intent.setData(Uri.parse(link_whosampled));
+						Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link_whosampled));
 						startActivity(intent);
 					}
 				}});

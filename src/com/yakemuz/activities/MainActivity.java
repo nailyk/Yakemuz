@@ -35,6 +35,7 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 	Animation rotation;
 	SharedPreferences sharedPref;
 	int recordTime;
+	Toast toast;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
@@ -56,7 +57,10 @@ public class MainActivity extends Activity implements AudioFingerprinterListener
 					// get Internet status
 					isInternetPresent = net_state.isConnectingToInternet();
 					if (!isInternetPresent) {
-						Toast toast = Toast.makeText(MainActivity.this, R.string.no_connection, Toast.LENGTH_SHORT);
+						if (toast != null) {
+							toast.cancel();
+						}
+						toast = Toast.makeText(MainActivity.this, R.string.no_connection, Toast.LENGTH_SHORT);
 						toast.show();
 					}
 					else {

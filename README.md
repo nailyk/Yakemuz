@@ -6,7 +6,7 @@ This project must include the Echoprint project as a library project (in eclipse
 
 Images of app :
 
-(docs/home.png)
+[zz](docs/home.png)
 (docs/listening.png)
 (docs/results(1).png)
 (docs/results(2).png)

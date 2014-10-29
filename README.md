@@ -4,7 +4,7 @@ Yakemuz
 
 This project must include the Echoprint project as a library project (in eclipse), in order to generate the fingerprint of the song which will be send to the Echonest servers.
 
-Screenshots of app :
+Screenshots of the app :
 
 ![home menu](screenshots/home.png)
 ![listening](screenshots/listening.png)

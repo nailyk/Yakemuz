@@ -6,7 +6,7 @@ This project must include the Echoprint project as a library project (in eclipse
 
 Screenshots of app :
 
-![home menu](docs/home.png)
-![listening](docs/listening.png)
-![results(1)](docs/results(1).png)
-![results(2)](docs/results(2).png)
+![home menu](screenshots/home.png)
+![listening](screenshots/listening.png)
+![results(1)](screenshots/results(1).png)
+![results(2)](screenshots/results(2).png)
